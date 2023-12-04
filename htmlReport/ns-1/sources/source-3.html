@@ -52,33 +52,33 @@ Current scope:     <a href="../../index.html">all classes</a>
     100%
   </span>
   <span class="absValue">
-    (33/33)
+    (39/39)
   </span>
 </td>
 </tr>
   <tr>
-    <td class="name">Peli$MockitoMock$2011056608</td>
+    <td class="name">Peli$MockitoMock$1861622919</td>
   </tr>
   <tr>
-    <td class="name">Peli$MockitoMock$2011056608$auxiliary$7PO7UDXj</td>
+    <td class="name">Peli$MockitoMock$1861622919$auxiliary$ayaHzYbc</td>
   </tr>
   <tr>
-    <td class="name">Peli$MockitoMock$2011056608$auxiliary$IzNG2D0K</td>
+    <td class="name">Peli$MockitoMock$1861622919$auxiliary$f1EOQlKc</td>
   </tr>
   <tr>
-    <td class="name">Peli$MockitoMock$2011056608$auxiliary$LEQKCYR9</td>
+    <td class="name">Peli$MockitoMock$1861622919$auxiliary$KT7J8z8t</td>
   </tr>
   <tr>
-    <td class="name">Peli$MockitoMock$2011056608$auxiliary$mHxbOdgC</td>
+    <td class="name">Peli$MockitoMock$1861622919$auxiliary$Lei0uuGF</td>
   </tr>
   <tr>
-    <td class="name">Peli$MockitoMock$2011056608$auxiliary$tw7gHqu8</td>
+    <td class="name">Peli$MockitoMock$1861622919$auxiliary$pIDJEoPf</td>
   </tr>
   <tr>
-    <td class="name">Peli$MockitoMock$2011056608$auxiliary$x893Kcvk</td>
+    <td class="name">Peli$MockitoMock$1861622919$auxiliary$xR3GdhN1</td>
   </tr>
   <tr>
-    <td class="name">Peli$MockitoMock$2011056608$auxiliary$xBGzlLQ5</td>
+    <td class="name">Peli$MockitoMock$1861622919$auxiliary$Xs7865BX</td>
   </tr>
 <tr>
   <td class="name"><strong>Total</strong></td>
@@ -95,7 +95,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     100%
   </span>
   <span class="absValue">
-    (33/33)
+    (39/39)
   </span>
 </td>
 </tr>
@@ -150,13 +150,13 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;        }
 <b class="fc">&nbsp;        System.out.println(&quot;Erä: &quot; + (pelatutPelit += 1) + &quot; =====================\n&quot;);</b>
 &nbsp;
-<b class="fc">&nbsp;        p1Valinta = p1.pelaajanValinta();</b>
-<b class="fc">&nbsp;        p2Valinta = p2.pelaajanValinta();</b>
+<b class="fc">&nbsp;        p1Valinta = p1.getValinta();</b>
+<b class="fc">&nbsp;        p2Valinta = p2.getValinta();</b>
 &nbsp;
 <b class="fc">&nbsp;        System.out.println(&quot;Pelaaja 1: &quot; + p1Valinta);</b>
 <b class="fc">&nbsp;        System.out.println(&quot;Pelaaja 2: &quot; + p2Valinta);</b>
 &nbsp;
-<b class="fc">&nbsp;        kumpiVoitti(p1Valinta, p2Valinta);</b>
+<b class="fc">&nbsp;        getKumpiVoitti(p1Valinta, p2Valinta);</b>
 &nbsp;
 <b class="fc">&nbsp;        System.out.println(&quot;Pelaaja 1:llä koossa &quot; + p1.getVoitot() + &quot; voittoa.&quot;);</b>
 <b class="fc">&nbsp;        System.out.println(&quot;Pelaaja 2:lla koossa &quot; + p2.getVoitot() + &quot; voittoa.&quot;);</b>
@@ -168,24 +168,29 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;     * @param p1Valinta Pelaajan 1 valinta
 &nbsp;     * @param p2Valinta Pelaajan 2 valinta
 &nbsp;     */
-&nbsp;    public void kumpiVoitti(String p1Valinta, String p2Valinta) {
+&nbsp;    public void getKumpiVoitti(String p1Valinta, String p2Valinta) {
 <b class="fc">&nbsp;        if (p1Valinta.equals(p2Valinta)) {</b>
 <b class="fc">&nbsp;            tasapelit++;</b>
 <b class="fc">&nbsp;            System.out.println(&quot;\n\t\t\t Tasapeli \n&quot;);</b>
-<b class="fc">&nbsp;        } else if (p1.voittiko(p1Valinta, p2Valinta)) {</b>
-<b class="fc">&nbsp;            p1.setVoitot();</b>
+<b class="fc">&nbsp;        } else if (p1Valinta.equals(&quot;kivi&quot;) &amp;&amp; p2Valinta.equals(&quot;sakset&quot;)) {</b>
+<b class="fc">&nbsp;            p1.addVoitto();</b>
+<b class="fc">&nbsp;            System.out.println(&quot;\n\t\tPelaaja 1 voittaa\n&quot;);</b>
+<b class="fc">&nbsp;        } else if (p1Valinta.equals(&quot;sakset&quot;) &amp;&amp; p2Valinta.equals(&quot;paperi&quot;)) {</b>
+<b class="fc">&nbsp;            p1.addVoitto();</b>
+<b class="fc">&nbsp;            System.out.println(&quot;\n\t\tPelaaja 1 voittaa\n&quot;);</b>
+<b class="fc">&nbsp;        } else if (p1Valinta.equals(&quot;paperi&quot;) &amp;&amp; p2Valinta.equals(&quot;kivi&quot;)) {</b>
+<b class="fc">&nbsp;            p1.addVoitto();</b>
 <b class="fc">&nbsp;            System.out.println(&quot;\n\t\tPelaaja 1 voittaa\n&quot;);</b>
 &nbsp;        } else {
-<b class="fc">&nbsp;            p2.setVoitot();</b>
+<b class="fc">&nbsp;            p2.addVoitto();</b>
 <b class="fc">&nbsp;            System.out.println(&quot;\n\t\tPelaaja 2 voittaa\n&quot;);</b>
 &nbsp;        }
 &nbsp;    }
-&nbsp;
 &nbsp;    /**
 &nbsp;     * Tarkistaa onko toinen pelaaja saavuttanut kolme voittoa
 &nbsp;     * @return true jos toinen pelaaja on saavuttanut kolme voittoa
 &nbsp;     */
-&nbsp;    public boolean getPeliLoppui() {
+&nbsp;    public boolean getLoppuiko() {
 <b class="fc">&nbsp;        if ((p1.getVoitot() &gt;= 3) || (p2.getVoitot() &gt;= 3)) {</b>
 <b class="fc">&nbsp;            System.out.println(&quot;KOLME VOITTOA - PELI PÄÄTTYY! Voittaja on &quot; + (p1.getVoitot() &gt; p2.getVoitot() ? &quot;Pelaaja 1&quot; : &quot;Pelaaja 2&quot;) + &quot; kolmella voitolla!&quot;);</b>
 <b class="fc">&nbsp;            return true;</b>
@@ -232,7 +237,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2023-12-04 21:32</div>
+    <div style="float:right;">generated on 2023-12-04 22:17</div>
 </div>
 </body>
 </html>

@@ -42,13 +42,13 @@ public class Peli {
         }
         System.out.println("Erä: " + (pelatutPelit += 1) + " =====================\n");
 
-        p1Valinta = p1.pelaajanValinta();
-        p2Valinta = p2.pelaajanValinta();
+        p1Valinta = p1.getValinta();
+        p2Valinta = p2.getValinta();
 
         System.out.println("Pelaaja 1: " + p1Valinta);
         System.out.println("Pelaaja 2: " + p2Valinta);
 
-        kumpiVoitti(p1Valinta, p2Valinta);
+        getKumpiVoitti(p1Valinta, p2Valinta);
 
         System.out.println("Pelaaja 1:llä koossa " + p1.getVoitot() + " voittoa.");
         System.out.println("Pelaaja 2:lla koossa " + p2.getVoitot() + " voittoa.");
@@ -60,24 +60,29 @@ public class Peli {
      * @param p1Valinta Pelaajan 1 valinta
      * @param p2Valinta Pelaajan 2 valinta
      */
-    public void kumpiVoitti(String p1Valinta, String p2Valinta) {
+    public void getKumpiVoitti(String p1Valinta, String p2Valinta) {
         if (p1Valinta.equals(p2Valinta)) {
             tasapelit++;
             System.out.println("\n\t\t\t Tasapeli \n");
-        } else if (p1.voittiko(p1Valinta, p2Valinta)) {
-            p1.setVoitot();
+        } else if (p1Valinta.equals("kivi") && p2Valinta.equals("sakset")) {
+            p1.addVoitto();
+            System.out.println("\n\t\tPelaaja 1 voittaa\n");
+        } else if (p1Valinta.equals("sakset") && p2Valinta.equals("paperi")) {
+            p1.addVoitto();
+            System.out.println("\n\t\tPelaaja 1 voittaa\n");
+        } else if (p1Valinta.equals("paperi") && p2Valinta.equals("kivi")) {
+            p1.addVoitto();
             System.out.println("\n\t\tPelaaja 1 voittaa\n");
         } else {
-            p2.setVoitot();
+            p2.addVoitto();
             System.out.println("\n\t\tPelaaja 2 voittaa\n");
         }
     }
-
     /**
      * Tarkistaa onko toinen pelaaja saavuttanut kolme voittoa
      * @return true jos toinen pelaaja on saavuttanut kolme voittoa
      */
-    public boolean getPeliLoppui() {
+    public boolean getLoppuiko() {
         if ((p1.getVoitot() >= 3) || (p2.getVoitot() >= 3)) {
             System.out.println("KOLME VOITTOA - PELI PÄÄTTYY! Voittaja on " + (p1.getVoitot() > p2.getVoitot() ? "Pelaaja 1" : "Pelaaja 2") + " kolmella voitolla!");
             return true;

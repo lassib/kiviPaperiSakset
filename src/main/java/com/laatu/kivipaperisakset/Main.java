@@ -19,7 +19,7 @@ public class Main {
         Pelaaja p2 = new Pelaaja();
         Peli peli = new Peli(p1, p2);
 
-        while (peli.getPeliLoppui() == false) {
+        while (peli.getLoppuiko() == false) {
             peli.pelaa();
         }
     }

@@ -21,7 +21,7 @@ public class Pelaaja {
      * Valitse randomilla kivi, paperi tai sakset
      * @return valinta (kivi, paperi tai sakset)
      */
-    public String pelaajanValinta() {
+    public String getValinta() {
         String valinta = "";
         int c = (int) (Math.random() * 3);
         switch (c) {
@@ -39,27 +39,9 @@ public class Pelaaja {
     }
 
     /**
-     * Tarkista voittiko pelaaja 1 vai 2
-     * @param p1Valinta pelaajan 1 valinta
-     * @param p2Valinta pelaajan 2 valinta
-     * @return voittiko pelaaja 1 (true/false)
-     */
-    public boolean voittiko(String p1Valinta, String p2Valinta) {
-        boolean voittiko = false;
-        if ((p1Valinta.equals("kivi")) && (p2Valinta.equals("sakset"))) {
-            voittiko = true;
-        } else if ((p1Valinta.equals("sakset")) && (p2Valinta.equals("paperi"))) {
-            voittiko = true;
-        } else if ((p1Valinta.equals("paperi")) && (p2Valinta.equals("kivi"))) {
-            voittiko = true;
-        }
-        return voittiko;
-    }
-
-    /**
      * Lisää pelaajan voittoihin yhden
      */
-    public void setVoitot() {
+    public void addVoitto() {
         voitotYhteensä++;
     }
 

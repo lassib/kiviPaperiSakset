@@ -68,7 +68,7 @@ public class PeliTest {
     })
     void testVoittaja(String pelaaja1Valinta, String pelaaja2Valinta, int pelaaja1OdotetutVoitot, int pelaaja2OdotetutVoitot, int tasapelit) {
         Peli peli = new Peli(pelaaja1, pelaaja2);
-        peli.kumpiVoitti(pelaaja1Valinta, pelaaja2Valinta);
+        peli.getKumpiVoitti(pelaaja1Valinta, pelaaja2Valinta);
         assertEquals(pelaaja1OdotetutVoitot, pelaaja1.getVoitot());
         assertEquals(pelaaja2OdotetutVoitot, pelaaja2.getVoitot());
         assertEquals(tasapelit, peli.getTasapelit());
@@ -81,7 +81,7 @@ public class PeliTest {
     @Test
     void testaaPeli() {
         Peli mock = Mockito.spy(peli);
-        doNothing().when(mock).kumpiVoitti(pelaaja1.pelaajanValinta(), pelaaja2.pelaajanValinta());
+        doNothing().when(mock).getKumpiVoitti(pelaaja1.getValinta(), pelaaja2.getValinta());
         mock.pelaa();
         verify(mock, times(1)).pelaa();
     }
@@ -92,11 +92,11 @@ public class PeliTest {
     @Order(4)
     @Test
     void testPeliLoppuu() {
-        assertFalse(peli.getPeliLoppui());
-        while (!peli.getPeliLoppui()) {
+        assertFalse(peli.getLoppuiko());
+        while (!peli.getLoppuiko()) {
             peli.pelaa();
         }
-        assertTrue(peli.getPeliLoppui());
+        assertTrue(peli.getLoppuiko());
     }
 
     /**
@@ -105,10 +105,10 @@ public class PeliTest {
     @Order(5)
     @Test
     void testKolmeVoittoa() {
-        while(!peli.getPeliLoppui()) {
+        while(!peli.getLoppuiko()) {
             peli.pelaa();
         }
-        assertTrue(peli.getPeliLoppui());
+        assertTrue(peli.getLoppuiko());
         assertTrue(pelaaja1.getVoitot() == 3 || pelaaja2.getVoitot() == 3);
     }
 }
