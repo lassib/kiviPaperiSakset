@@ -4,8 +4,16 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Testaa Pelaaja-luokkan toiminnaalisuutta
+ * @see Pelaaja
+ * @author Lassi Bågman
+ */
 public class PelaajaTest {
 
+    /**
+     * Testaa jos pelaaja 1 voittaa
+     */
     @Test
     public void testPelaaja1Voitti() {
         Pelaaja pelaaja1 = new Pelaaja();
@@ -14,6 +22,9 @@ public class PelaajaTest {
         assertTrue(pelaaja1.voittiko("sakset", "paperi"));
     }
 
+    /**
+     * Testaa jos pelaaja 1 häviää
+     */
     @Test
     public void testPelaaja1Havisi() {
         Pelaaja pelaaja1 = new Pelaaja();
@@ -22,6 +33,9 @@ public class PelaajaTest {
         assertFalse(pelaaja1.voittiko("sakset", "kivi"));
     }
 
+    /**
+     * Testaa jos tasapeli
+     */
     @Test
     public void testPelaaja1Tasapeli() {
         Pelaaja pelaaja1 = new Pelaaja();
@@ -30,6 +44,9 @@ public class PelaajaTest {
         assertFalse(pelaaja1.voittiko("sakset", "sakset"));
     }
 
+    /**
+     * Testaa että voiton lisääminen onnistuu
+     */
     @Test
     public void testLisaaVoitto() {
         Pelaaja pelaaja1 = new Pelaaja();

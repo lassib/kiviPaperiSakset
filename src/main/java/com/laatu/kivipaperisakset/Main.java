@@ -4,8 +4,8 @@ package com.laatu.kivipaperisakset;
  * Main-luokka, joka luo kaksi pelaajaa ja pelin ja pelaa uuden pelin niin kauan kunnes peli ohi ehto täyttyy.
  * @see Pelaaja
  * @see Peli
- * @auhtor Ira Dook
- * @auhtor Lassi Bågman
+ * @author  Ira Dook
+ * @author  Lassi Bågman
  * @version 0.2
  */
 public class Main {

@@ -61,7 +61,7 @@ public class Peli {
      * @param p2Valinta Pelaajan 2 valinta
      */
     public void kumpiVoitti(String p1Valinta, String p2Valinta) {
-        if (p1Valinta == p2Valinta) {
+        if (p1Valinta.equals(p2Valinta)) {
             tasapelit++;
             System.out.println("\n\t\t\t Tasapeli \n");
         } else if (p1.voittiko(p1Valinta, p2Valinta)) {
