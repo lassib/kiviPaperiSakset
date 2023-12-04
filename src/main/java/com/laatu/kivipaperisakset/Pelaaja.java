@@ -8,7 +8,14 @@ package com.laatu.kivipaperisakset;
  */
 public class Pelaaja {
 
-    private int voitotYhteensä = 0; // Pelaajan voitot yhteensä
+    private int voitotYhteensä; // Pelaajan voitot yhteensä
+
+    /**
+     * Luo uuden pelaajan
+     */
+    public Pelaaja() {
+        this.voitotYhteensä = 0;
+    }
 
     /**
      * Valitse randomilla kivi, paperi tai sakset

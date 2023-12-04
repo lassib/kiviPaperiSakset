@@ -1,0 +1,177 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Pelaaja</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.laatu.kivipaperisakset</a>
+</div>
+
+<h1>Coverage Summary for Class: Pelaaja (com.laatu.kivipaperisakset)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Pelaaja</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (5/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (21/21)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;
+&nbsp;package com.laatu.kivipaperisakset;
+&nbsp;
+&nbsp;/**
+&nbsp; * Pelaaja-luokka sisältää pelaajan valinnan ja voittamisen tarkistuksen, sekä pelaajan voittojen määrän.
+&nbsp; * @author Ira Dook
+&nbsp; * @author Lassi Bågman
+&nbsp; */
+&nbsp;public class Pelaaja {
+&nbsp;
+&nbsp;    private int voitotYhteensä; // Pelaajan voitot yhteensä
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Luo uuden pelaajan
+&nbsp;     */
+<b class="fc">&nbsp;    public Pelaaja() {</b>
+<b class="fc">&nbsp;        this.voitotYhteensä = 0;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Valitse randomilla kivi, paperi tai sakset
+&nbsp;     * @return valinta (kivi, paperi tai sakset)
+&nbsp;     */
+&nbsp;    public String pelaajanValinta() {
+<b class="fc">&nbsp;        String valinta = &quot;&quot;;</b>
+<b class="fc">&nbsp;        int c = (int) (Math.random() * 3);</b>
+<b class="fc">&nbsp;        switch (c) {</b>
+&nbsp;            case 0:
+<b class="fc">&nbsp;                valinta = (&quot;kivi&quot;);</b>
+<b class="fc">&nbsp;                break;</b>
+&nbsp;            case 1:
+<b class="fc">&nbsp;                valinta = (&quot;paperi&quot;);</b>
+<b class="fc">&nbsp;                break;</b>
+&nbsp;            case 2:
+<b class="fc">&nbsp;                valinta = (&quot;sakset&quot;);</b>
+&nbsp;                break;
+&nbsp;        }
+<b class="fc">&nbsp;        return valinta;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Tarkista voittiko pelaaja 1 vai 2
+&nbsp;     * @param p1Valinta pelaajan 1 valinta
+&nbsp;     * @param p2Valinta pelaajan 2 valinta
+&nbsp;     * @return voittiko pelaaja 1 (true/false)
+&nbsp;     */
+&nbsp;    public boolean voittiko(String p1Valinta, String p2Valinta) {
+<b class="fc">&nbsp;        boolean voittiko = false;</b>
+<b class="fc">&nbsp;        if ((p1Valinta.equals(&quot;kivi&quot;)) &amp;&amp; (p2Valinta.equals(&quot;sakset&quot;))) {</b>
+<b class="fc">&nbsp;            voittiko = true;</b>
+<b class="fc">&nbsp;        } else if ((p1Valinta.equals(&quot;sakset&quot;)) &amp;&amp; (p2Valinta.equals(&quot;paperi&quot;))) {</b>
+<b class="fc">&nbsp;            voittiko = true;</b>
+<b class="fc">&nbsp;        } else if ((p1Valinta.equals(&quot;paperi&quot;)) &amp;&amp; (p2Valinta.equals(&quot;kivi&quot;))) {</b>
+<b class="fc">&nbsp;            voittiko = true;</b>
+&nbsp;        }
+<b class="fc">&nbsp;        return voittiko;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Lisää pelaajan voittoihin yhden
+&nbsp;     */
+&nbsp;    public void setVoitot() {
+<b class="fc">&nbsp;        voitotYhteensä++;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Palauta pelaajan voitot
+&nbsp;     * @return pelaajan voitot
+&nbsp;     */
+&nbsp;    public int getVoitot() {
+<b class="fc">&nbsp;        return (voitotYhteensä);</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-12-04 21:32</div>
+</div>
+</body>
+</html>
