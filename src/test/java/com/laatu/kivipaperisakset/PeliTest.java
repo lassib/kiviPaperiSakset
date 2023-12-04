@@ -23,8 +23,8 @@ public class PeliTest {
         peli = new Peli(pelaaja1, pelaaja2);
     }
 
-    @Test
     @Order(1)
+    @Test
     void testLahtopiste() {
         assertEquals(0, pelaaja1.getVoitot());
         assertEquals(0, pelaaja2.getVoitot());
@@ -32,8 +32,8 @@ public class PeliTest {
         assertEquals(0, peli.getPelatutPelit());
     }
 
-    @ParameterizedTest(name = "{index} => pelaaja1Valinta={0}, pelaaja2Valinta={1}, pelaaja1OdotetutVoitot={2}, pelaaja2OdotetutVoitot={3}, tasapelit={4}")
     @Order(2)
+    @ParameterizedTest(name = "{index} => pelaaja1Valinta={0}, pelaaja2Valinta={1}, pelaaja1OdotetutVoitot={2}, pelaaja2OdotetutVoitot={3}, tasapelit={4}")
     @CsvSource({
             "kivi, sakset, 1, 0, 0",
             "kivi, paperi, 0, 1, 0",
@@ -43,7 +43,7 @@ public class PeliTest {
             "paperi, paperi, 0, 0, 1",
             "sakset, paperi, 1, 0, 0",
             "sakset, kivi, 0, 1, 0",
-            "sakset, sakset, 0, 0, 1",
+            "sakset, sakset, 0, 0, 1"
     })
     void testVoittaja(String pelaaja1Valinta, String pelaaja2Valinta, int pelaaja1OdotetutVoitot, int pelaaja2OdotetutVoitot, int tasapelit) {
         Peli peli = new Peli(pelaaja1, pelaaja2);
@@ -53,8 +53,8 @@ public class PeliTest {
         assertEquals(tasapelit, peli.getTasapelit());
     }
 
-    @Test
     @Order(3)
+    @Test
     void testaaPeli() {
         Peli mock = Mockito.spy(peli);
         doNothing().when(mock).kumpiVoitti(pelaaja1.pelaajanValinta(), pelaaja2.pelaajanValinta());
@@ -62,8 +62,8 @@ public class PeliTest {
         verify(mock, times(1)).pelaa();
     }
 
-    @Test
     @Order(4)
+    @Test
     void testPeliLoppuu() {
         assertFalse(peli.getPeliLoppui());
         while (!peli.getPeliLoppui()) {
@@ -72,8 +72,8 @@ public class PeliTest {
         assertTrue(peli.getPeliLoppui());
     }
 
-    @Test
     @Order(5)
+    @Test
     void testKolmeVoittoa() {
         while(!peli.getPeliLoppui()) {
             peli.pelaa();
